@@ -14,6 +14,7 @@ import com.example.m3l7hw.R;
 import com.example.m3l7hw.adapter.ViewPagerAdapter;
 import com.example.m3l7hw.databinding.FragmentHomeBinding;
 import com.example.m3l7hw.databinding.FragmentProfileBinding;
+import com.example.m3l7hw.ui.model.Tabs;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -24,7 +25,7 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private ViewPagerAdapter viewPagerAdapter;
-    private ArrayList<Fragment> fragments;
+    private ArrayList<Tabs> fragments;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,16 +39,15 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragments = new ArrayList<>();
-        fragments.add(new MyPhotosFragment());
-        fragments.add(new TaggedPhotosFragment());
+        fragments.add(new Tabs(new MyPhotosFragment(), R.drawable.ic_grid));
+        fragments.add(new Tabs(new TaggedPhotosFragment(), R.drawable.ic_account));
         viewPagerAdapter = new ViewPagerAdapter(this);
         viewPagerAdapter.setFragments(fragments);
         binding.viewPager.setAdapter(viewPagerAdapter);
         new TabLayoutMediator(binding.tabLayout, binding.viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setIcon(R.drawable.ic_camera);
-                tab.setIcon(R.drawable.ic_home);
+                tab.setIcon(fragments.get(position).getFragmentIcon());
 
             }
         }).attach();

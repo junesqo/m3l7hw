@@ -41,9 +41,9 @@ public class LikesFragment extends Fragment {
 
     private void loadData() {
         likes = new ArrayList<>();
-        likes.add(new Like(R.drawable.post_photo, "karennne liked your photo. ", "1h", R.drawable.post_photo));
-        likes.add(new Like(R.drawable.post_photo, "karennne liked your photo. ", "1h", R.drawable.post_photo));
-        likes.add(new Like(R.drawable.post_photo, "karennne liked your photo. ", "1h", R.drawable.post_photo));
-        likes.add(new Like(R.drawable.post_photo, "karennne liked your photo. ", "1h", R.drawable.post_photo));
+        likes.add(new Like(R.drawable.guest, "karennne liked your photo. ", "1h", R.drawable.p1));
+        likes.add(new Like(R.drawable.guest, "karennne liked your photo. ", "1h", R.drawable.p1));
+        likes.add(new Like(R.drawable.guest, "karennne liked your photo. ", "1h", R.drawable.p1));
+        likes.add(new Like(R.drawable.guest, "karennne liked your photo. ", "1h", R.drawable.p1));
     }
 }
